@@ -1,0 +1,55 @@
+<style type="text/css">
+/* 
+#meeting_icon {
+	width: auto;
+	height: 160px;
+}
+#meeting_icon_m {
+	width: auto;
+	height: 107px;
+}
+#meeting_icon_s {
+	width: auto;
+	height: 53px;
+}
+
+*/
+
+#launch_meeting {
+	/* position: absolute; */
+}
+
+
+#meeting_icon .clock {
+	position: absolute;
+	margin-top: 80px;
+	margin-left: -80px;
+}
+#meeting_icon_md .clock {
+	position: absolute;
+	margin-top: 36px;
+	margin-left: -64px;
+}
+#meeting_icon_sm .clock {
+	position: absolute;
+	margin-top: 18px;
+	margin-left: -34px;
+}
+#meeting_icon A:LINK IMG ,
+#meeting_icon_m A:LINK IMG ,
+#meeting_icon_s A:LINK IMG ,
+#meeting_icon A:VISITED IMG ,
+#meeting_icon_m A:VISITED IMG ,
+#meeting_icon_s A:VISITED IMG {
+  background: none;
+}
+#overDiv {
+  background: white;
+  position: absolute;
+  visibility: hidden;
+  z-index:1000;
+}
+#overDiv table.cal_popup_bg {
+  border: 2px solid black;
+}
+</style>

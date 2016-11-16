@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+
+<!--
+usage:
+
+<script type="text/javascript">
+    jwplayer("div_id").setup({
+        file: "sample.mp4",
+        skin: "refined_training/refined_training.xml"
+    });
+</script>
+-->
+
+<skin target="6.0" name="Refiend Training" author="Refined Data">
+
+	<components>
+		<component name="controlbar">
+			<settings>
+				<setting name="margin" value="0" />
+				<setting name="fontsize" value="13" />
+			</settings>
+
+			<elements>
+				<element name="background" src="background.png" />
+				<element name="capLeft" src="capLeft.png" />
+				<element name="capRight" src="capRight.png" />
+				<element name="divider" src="divider.png" />
+
+				<element name="playButton" src="playButton.png" />
+				
+				<element name="pauseButton" src="pauseButton.png" />
+				
+				<element name="timeSliderRail" src="timeSliderRail.png" />
+				<element name="timeSliderBuffer" src="timeSliderBuffer.png" />
+				<element name="timeSliderProgress" src="timeSliderProgress.png" />
+				<element name="timeSliderThumb" src="timeSliderThumb.png" />
+
+				<element name="muteButton" src="muteButton.png" />
+				
+				<element name="unmuteButton" src="unmuteButton.png" />
+				
+				<element name="volumeSliderRail" src="timeSliderRail.png" />
+				<element name="volumeSliderProgress" src="timeSliderProgress.png" />
+				<element name="volumeSliderThumb" src="timeSliderThumb.png" />
+				
+				<element name="fullscreenButton" src="fullscreenButton.png" />
+				
+				<element name="normalscreenButton" src="normalscreenButton.png" />
+				
+			</elements>
+		</component>
+
+		<component name="display">
+			<elements>
+				<element name="capLeft" src="cap.png" />
+				<element name="background" src="background.png" />
+				<element name="capRight" src="cap.png" />
+				<element name="playIcon" src="playIcon.png" />
+				<element name="muteIcon" src="muteIcon.png" />
+				<element name="errorIcon" src="errorIcon.png" />
+				<element name="bufferIcon" src="bufferIcon.png" />
+			</elements>
+		</component>
+
+		<component name="dock">
+			<elements>
+				<element name="button" src="button.png" />
+				<element name="buttonOver" src="button.png" />
+			</elements>
+		</component>
+
+		<component name="playlist">
+			<elements>
+				<element name="item" src="item.png" />
+				<element name="itemOver" src="item.png" />
+				<element name="sliderRail" src="sliderRail.png" />
+				<element name="sliderThumb" src="sliderThumb.png" />
+			</elements>
+		</component>
+
+	</components>
+
+</skin>
