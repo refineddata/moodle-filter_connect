@@ -21,17 +21,17 @@
 
 
 #meeting_icon .clock {
-	position: absolute;
+	/*position: absolute;*/
 	margin-top: 80px;
 	margin-left: -80px;
 }
 #meeting_icon_md .clock {
-	position: absolute;
+	/*position: absolute;*/
 	margin-top: 36px;
 	margin-left: -64px;
 }
 #meeting_icon_sm .clock {
-	position: absolute;
+	/*position: absolute;*/
 	margin-top: 18px;
 	margin-left: -34px;
 }
