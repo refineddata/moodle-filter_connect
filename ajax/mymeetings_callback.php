@@ -33,17 +33,17 @@ if ($meetings = connect_mymeetings($days)) {
 	            . '</div>';
 	    die;
 	}
-    $text .= '<table border="0" cellpadding="4" cellspacing="0" align="center">';
+    /*$text .= '<table border="0" cellpadding="4" cellspacing="0" align="center">';
     $text .= '<tr><td colspan="6" align="center"><br /><b>' . get_string('mymeetings', 'filter_connect') . '</b></td></tr>';
     $text .= '<tr><td colspan="2" align="center"><hr width="100%"></td></tr>';
 
-    $text .= "</table>";
+    $text .= "</table>";*/
 
     $text.= '<div class="mymeetings-columns">';
 
-    $text.= '<ul style="margin: 0; padding: 0; list-style-type: none;">';
+    //$text.= '<ul style="margin: 0; padding: 0; list-style-type: none;">';
 
-    $firstmeeting = 1;
+    //$firstmeeting = 1;
     foreach ($meetings as $meeting) {
         $link = $thisdir . '/launch.php?acurl=' . $meeting->url . '&mtg=y target="connect"';
         $time_info = '<br />' . userdate(strtotime($meeting->start), "%a, %b %d, %Y @ %I:%M%p ") . ' - ' . userdate(strtotime($meeting->end), "%I:%M%p ") . _tzabbr();
@@ -55,31 +55,31 @@ if ($meetings = connect_mymeetings($days)) {
 //                    $meeting->pphone . " #)</b>";
 //            }
 
-        $sublink = array('', $meeting->url . '#small-ls');
+        $sublink = array('', $meeting->url . '#large-ls');
 
-        $firststlyeadd = '';
+        /*$firststlyeadd = '';
         if( $firstmeeting ){
             $firstmeeting = 0;
             $firststyleadd = ' style="margin-top:0px;"';
-        }
+        }*/
 
-        $text.= '<li style="display: inline-block; padding-left: 20px; padding-right: 20px;">';
-        $text.= '<table style="width:342px">';
+        //$text.= '<li style="display: inline-block; padding-left: 20px; padding-right: 20px;">';
+        //$text.= '<table style="width:342px">';
 
-        $text .= '<tr><td>';
+        //$text .= '<tr><td>';
         $text .= connect_filter_connect_callback($sublink, false, 1);
-        $text.= '</td>';
+       // $text.= '</td>';
 
-        $text.= '<td valign="middle" align="center">';
+        /*$text.= '<td valign="middle" align="center">';
         $text .= '<b><a href="'.$link.'">' . $meeting->name . '</a></b>';
         $text .= $time_info . $phone_info;
         $text.= '</td></tr>';
         
         $text.= '</table>';
-        $text .= '</li>';
+        $text .= '</li>';*/
     }
 
-    $text.= "</ul></div>";
+    $text.= "</div>";
 
     $text .= '<br />';
 }

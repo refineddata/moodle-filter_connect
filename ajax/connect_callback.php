@@ -62,7 +62,7 @@ $thisdir = $CFG->wwwroot . '/filter/connect';
 
 
 $iconsize = '';
-$iconalign = 'center';
+$iconalign = 'left';
 $silent = false;
 $telephony = true;
 $mouseovers = true;
@@ -250,7 +250,8 @@ if (!$silent) {
     $instancename = html_writer::tag('span', $sco->name, array('class' => 'instancename')) . '<br/>';
     $aftertext = $font . $instancename . $strtime . $strtele . $viewlimit . $grouping . $extra_html . '</font>';
 } else {
-    $aftertext = $extra_html;
+	$instancename = html_writer::tag('span', $sco->name, array('class' => 'instancename')) . '<br/>';
+	$aftertext = $font . $instancename . $strtime . $strtele . $extra_html . '</font>';
 }
 
 $archive = '';
@@ -265,17 +266,18 @@ $link = $thisdir . '/launch.php?acurl=' . $acurl . $archive . '&guests=' . ($all
 
 $overtext = '';
 if ($mouseovers || is_siteadmin($USER)) {
+	$overtext = '<div align="right"><br /><br /><br />';
 //        $overtext = '<b><center>' . $sco->name . '</b><br/><hr width="90%"></center></b>';
-    $overtext .= '<div align="left"><a href="' . $link . '" target="'.$linktarget.'" >';
-    if (!empty($archive) || $frommyrecordings) $overtext .= '<b>' . get_string('launch_archive', 'filter_connect') . '</a></b><br/>';
-    else $overtext .= '<b>' . get_string('launch_' . $sco->type, 'filter_connect') . '</a></b><br/>';
+    //$overtext .= '<div align="left"><a href="' . $link . '" target="'.$linktarget.'" >';
+    //if (!empty($archive) || $frommyrecordings) $overtext .= '<b>' . get_string('launch_archive', 'filter_connect') . '</a></b><br/>';
+    //else $overtext .= '<b>' . get_string('launch_' . $sco->type, 'filter_connect') . '</a></b><br/>';
 
     if (!empty($sco->desc)) {
         $search = '/\[\[user#([^\]]+)\]\]/is';
         $sco->desc = preg_replace_callback($search, 'connect_filter_user_callback', $sco->desc);
         $overtext .= str_replace("\n", "<br />", $sco->desc) . '<br/>';
     }
-    $overtext .= $strtime . $strtele;
+    //$overtext .= $strtime . $strtele;
 
     if ($PAGE->user_allowed_editing()) {
     	if( $courseid && $course = $DB->get_record( 'course', array( 'id' => $courseid ) ) ){
@@ -285,8 +287,9 @@ if ($mouseovers || is_siteadmin($USER)) {
     	}
         if (has_capability('filter/connect:editresource', $editcontext)) {
             $overtext .= '<a href="' . $link . '&edit=' . $sco->id . '&type=' . $sco->type . '" target="'.$linktarget.'" >';
-            $overtext .= '<img src="' . $CFG->wwwroot . '/filter/connect/images/adobe.gif" border="0" align="middle"> ';
-            $overtext .= get_string('launch_edit', 'filter_connect') . '</a><br/>';
+            //$overtext .= '<img src="' . $CFG->wwwroot . '/filter/connect/images/adobe.gif" border="0" align="middle"> ';
+            //$overtext .= get_string('launch_edit', 'filter_connect') . '</a><br/>';
+	        $overtext .= "<img src='" . $OUTPUT->pix_url('/t/edit') . "' class='iconsmall' title='" . get_string('launch_edit', 'filter_connect')  ."' />". "</a>";
         }
 
         $overtext .= empty($sco->views) ? '' : '<br />(' . $sco->views . ' ' . get_string('views', 'filter_connect') . ')<br/>';
@@ -300,9 +303,11 @@ if ($mouseovers || is_siteadmin($USER)) {
             	}
             } else {
                 $overtext .= '<a href="' . $CFG->wwwroot . '/filter/connect/attendees.php?acurl=' . $acurl . '&course=' . $courseid . '">';
-                $overtext .= '<img src="' . $CFG->wwwroot . '/filter/connect/images/attendee.gif" border="0" align="middle"> ' . get_string('viewattendees', 'filter_connect') . '</a>';
-                $overtext .= '<a href="' . $CFG->wwwroot . '/mod/connectmeeting/past_sessions.php?acurl=' . $acurl . '&course=' . $courseid . '">';
-                $overtext .= '<br /><img src="' . $CFG->wwwroot . '/filter/connect/images/attendee.gif" border="0" align="middle"> ' . get_string('viewpastsessions', 'filter_connect') . '</a>';
+                //$overtext .= '<img src="' . $CFG->wwwroot . '/filter/connect/images/attendee.gif" border="0" align="middle"> ' . get_string('viewattendees', 'filter_connect') . '</a>';
+	            $overtext .= "<img src='" . $OUTPUT->pix_url('/t/groups') . "' class='iconsmall' title='" . get_string('viewattendees', 'filter_connect') ."' />". "</a>";
+	            $overtext .= '<a href="' . $CFG->wwwroot . '/mod/connectmeeting/past_sessions.php?acurl=' . $acurl . '&course=' . $courseid . '">';
+                //$overtext .= '<br /><img src="' . $CFG->wwwroot . '/filter/connect/images/attendee.gif" border="0" align="middle"> ' . get_string('viewpastsessions', 'filter_connect') . '</a>';
+	            $overtext .= "<img src='" . $OUTPUT->pix_url('/t/calendar') . "' class='iconsmall' title='" . get_string('viewpastsessions', 'filter_connect') ."' />". "</a>";
             }
         }
     }
