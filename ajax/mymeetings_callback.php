@@ -55,7 +55,7 @@ if ($meetings = connect_mymeetings($days)) {
 //                    $meeting->pphone . " #)</b>";
 //            }
 
-        $sublink = array('', $meeting->url . '#large-ls');
+        $sublink = array('', $meeting->url . '#medium-ls');
 
         /*$firststlyeadd = '';
         if( $firstmeeting ){
