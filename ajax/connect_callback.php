@@ -224,7 +224,7 @@ if (empty($iconurl)) {
 }
 
 $strtime = '';
-if ($sco->type == 'meeting' AND $sco->end > time()) {
+if (($sco->type == 'meeting' AND $sco->end > time()) || ( $sco->type == 'content' AND !empty($sco->end) )){
     $strtime .= userdate($sco->start, '%a %b %d, %Y', $USER->timezone);
     if ($iconsize == '_md' OR $iconsize == '_sm') $strtime .= "<br/>";
     $strtime .= userdate($sco->start, "@ %I:%M%p") . ' - ';

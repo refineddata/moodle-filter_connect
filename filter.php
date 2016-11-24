@@ -526,29 +526,29 @@ function connect_filter_myrecordings_callback($link) {
 
     // Loop through each recording
     if ($recordings = connect_get_recordings($urls, $firstdate)) {
-        $text .= '<table border="0" cellpadding="4" cellspacing="0" align="center">';
+        //$text .= '<table border="0" cellpadding="4" cellspacing="0" align="center">';
         if (empty($block)) {
-            $text .= '<tr><td colspan="6" align="center"><br /><b>' . $strmyrec . '</b></td></tr>';
-            $text .= '<tr><td colspan="2" align="center"><hr width="100%"></td></tr>';
+            //$text .= '<tr><td colspan="6" align="center"><br /><b>' . $strmyrec . '</b></td></tr>';
+            //$text .= '<tr><td colspan="2" align="center"><hr width="100%"></td></tr>';
         }
 
         foreach ($recordings as $recording) {
-            $link = $CFG->wwwroot . '/filter/connect/launch.php?acurl=' . $recording->url . '&mtg=y target="_blank"';
-            $time_info = '<br />' . userdate($recording->start, "%a %b %e, %Y @ %I:%M%p") . ' - ' . userdate($recording->end, "%I:%M%p ") . _tzabbr();
+            //$link = $CFG->wwwroot . '/filter/connect/launch.php?acurl=' . $recording->url . '&mtg=y target="_blank"';
+            //$time_info = '<br />' . userdate($recording->start, "%a %b %e, %Y @ %I:%M%p") . ' - ' . userdate($recording->end, "%I:%M%p ") . _tzabbr();
 
-            $sublink = array('', $recording->url . '#small-ls');
-            $text .= '<tr><td>' . connect_filter_connect_callback($sublink, $recording, 0, 1) . '</td>';
-
-            $text .= '<td valign="middle" align="center"><b>' . $recording->name . '</b>';
+            $sublink = array('', $recording->url . '#medium-ls');
+            //$text .= '<tr><td>' . connect_filter_connect_callback($sublink, $recording, 0, 1) . '</td>';
+            $text .= connect_filter_connect_callback($sublink, $recording, 0, 1);
+            //$text .= '<td valign="middle" align="center"><b>' . $recording->name . '</b>';
             if (empty($block)) {
-                $text .= '<br/>' . $recording->parent;
-                $text .= $time_info;
+                //$text .= '<br/>' . $recording->parent;
+               // $text .= $time_info;
             }
 
-            $text .= '</tr>';
+            //$text .= '</tr>';
         }
-        $text .= '</table>';
-        if (empty($block)) $text .= '<br/>';
+        //$text .= '</table>';
+        //if (empty($block)) $text .= '<br/>';
     }
     return $text;
 
