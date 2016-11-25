@@ -265,7 +265,7 @@ $linktarget = $forceaddin == 1 ? '_self' : '_blank';
 $link = $thisdir . '/launch.php?acurl=' . $acurl . $archive . '&guests=' . ($allowguests ? 1 : 0) . '&course=' . $courseid.'&forceaddin='.$forceaddin;
 
 $overtext = '';
-if ($mouseovers || is_siteadmin($USER)) {
+/*if ($mouseovers || is_siteadmin($USER)) {
 	$overtext = '<div align="right"><br /><br /><br />';
 //        $overtext = '<b><center>' . $sco->name . '</b><br/><hr width="90%"></center></b>';
     //$overtext .= '<div align="left"><a href="' . $link . '" target="'.$linktarget.'" >';
@@ -313,7 +313,7 @@ if ($mouseovers || is_siteadmin($USER)) {
     }
     $overtext .= '</div>';
 }
-
+*/
 $clock = '';
 if ($sco->type == 'meeting' AND time() > ($sco->start - 1800) AND $sco->end > time()) {
     $clock = '<img id="tooltipimage" class="clock" src="' . $CFG->wwwroot . '/filter/connect/images/clock';
