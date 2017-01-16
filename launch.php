@@ -14,6 +14,9 @@ $edit = optional_param('edit', 0, PARAM_INT);
 $type = optional_param('type', '', PARAM_ALPHA);
 $forceaddin = optional_param('forceaddin', '0', PARAM_INT);
 $cm = 0;
+if (empty($courseid)){
+    $courseid = 1;
+}
 $context = context_course::instance($courseid);
 $PAGE->set_context($context);
 
