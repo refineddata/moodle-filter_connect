@@ -521,7 +521,16 @@ function connect_filter_myrecordings_callback($link) {
                                         AND cm.groupingid       = gg.groupingid
                                         AND gg.groupid          = gm.groupid
                                         AND cm.course           = {$thiscourseid}
-                                        AND gm.userid           = {$USER->id}");
+                                        AND gm.userid           = {$USER->id}
+                                        UNION
+                                        SELECT DISTINCT c.id, c.ac_archive as url
+                                        FROM {$CFG->prefix}connectmeeting c, {$CFG->prefix}course_modules cm, {$CFG->prefix}modules m
+                                        WHERE c.id              = cm.instance
+                                        AND cm.module           = m.id
+                                        AND m.name              = 'connectmeeting'                                        
+                                        AND cm.course           = {$thiscourseid}
+                                        AND (c.ac_archive != '' AND c.ac_archive is not null)
+                                        ");
     if (!$urls) return $text;
 
     // Loop through each recording
